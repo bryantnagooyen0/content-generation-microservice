@@ -40,6 +40,7 @@ If the type is wrong, it gives an error:
     "result": "There was an error with the request",
     "status": "error"
 }
+
 How to run it
 ----------------
 
