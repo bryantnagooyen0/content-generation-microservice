@@ -73,3 +73,8 @@ The quotes and habits are stored in the code.
 The microservice only processes requests with "status": "pending".
 
 Invalid request types return an error.
+
+UML Sequence Diagram
+----------------------
+<img width="838" height="493" alt="image" src="https://github.com/user-attachments/assets/af11327d-3d78-410a-b5f0-4896a15264cd" />
+
