@@ -24,6 +24,7 @@ quotes = [
     "Dream big and dare to fail. - Norman Vaughan",
     "Action is the foundational key to all success. - Pablo Picasso"
 ]
+
 habits = [
     "Wake up at the same time every day.",
     "Follow the two-minute rule for small tasks.",
@@ -52,39 +53,35 @@ habits = [
     "Pack a healthy lunch to avoid decision fatigue."
 ]
 
-
 while True:
     with open('request.json', 'r') as file:
         request = json.load(file)
 
     if request['status'] == 'pending':
-        if request['type'] == "quote":
-            type = request['type']
+        request_type = request['type']
+
+        if request_type == "quote":
             result = random.choice(quotes)
             status = "completed"
-        elif request["type"] == "habit":
-            type = request['type']
+        elif request_type == "habit":
             result = random.choice(habits)
             status = "completed"
         else:
-            type = "unknown"
+            request_type = "unknown"
             result = "Error in validating request"
             status = "error"
 
         response = {
-        "type": type,
-        "result": result,
-        "status": status
+            "type": request_type,
+            "result": result,
+            "status": status
         }
 
         with open('response.json', 'w') as f:
             json.dump(response, f, indent=4)
-        
+
         request['status'] = "completed"
         with open('request.json', "w") as file:
             json.dump(request, file, indent=4)
-    
-    time.sleep(1)
 
-        
-            
+    time.sleep(1)
